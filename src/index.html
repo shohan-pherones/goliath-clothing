@@ -13,7 +13,7 @@
       }
 
       .navbar {
-        z-index: 99;
+        z-index: 97;
       }
 
       .item-body-price-btn{
@@ -30,6 +30,30 @@
         cursor: pointer;
         transition: all 0.3s;
       }
+
+      .modalWindow{
+        background-color: white;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 99;
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.3s;
+      }
+      
+      .overlayWindow{
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 98;
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.3s;
+      }
     </style>
     <!-- CSS only -->
     <link
@@ -41,6 +65,7 @@
     <link rel="stylesheet" href="../dist/output.css" />
   </head>
   <body class="bg-gray-100 text-gray-600">
+    <!-- Header -->
     <header>
       <!-- Navbar -->
       <nav
@@ -113,7 +138,19 @@
           </div>
         </div>
       </nav>
+      <!-- Hero section -->
+      <div class="hero container mt-32 grid lg:grid-cols-3 md:grid-cols-1 gap-5">
+        <div class="left lg:col-span-2 my-auto">
+          <h1 class="text-4xl lg:text-6xl font-semibold mb-10 leading-tight justify-self-center">Wear the outfits like a classy and sassy <span class="text-cyan-500">goliath</span></h1>
+          <p class="text-xl mb-10">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis dignissimos sit id incidunt, est voluptatum quo exercitationem ipsa laborum tempore iste nesciunt doloribus cumque tenetur corporis, unde illo doloremque mollitia!</p>
+          <a href="#" class="text-2xl text-cyan-500 ease-in-out hover:text-red-500 duration-300">Explore &rarr;</a>
+        </div>
+        <div class="right flex justify-center">
+          <img src="../assets/img/hero.jpg" alt="Hero image" class="rounded-tl-3xl rounded-br-3xl">
+        </div>
+      </div>
     </header>
+    <!-- Main -->
     <main>
       <!-- Categories -->
       <div class="container mt-32" id="categories">
@@ -165,14 +202,16 @@
       <!-- Browse items -->
       <div class="container mt-32" id="browse-items">
         <h2 class="text-3xl text-center mb-10">Browse Items</h2>
-        <div class="items row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 gap-10 justify-center"
-        >
-      <!-- Item goes here -->
+        <div class="items row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 gap-10 justify-center"></div>
       </div>
-        </div>
-      </div>
+      <!-- Overlay -->
+      <div class="overlayWindow backdrop-blur-2xl bg-white/30"></div>
+      <!-- Checkout Modal -->
+      <div class="modal-holder"></div>
     </main>
-    <footer >
+    
+    <!-- Footer -->
+    <footer>
       <p class="text-center">&copy; 2022, Goliath Clothing. All rights reserved.</p>
       <div class="icons flex justify-center gap-3 mt-3">
         <a href="#"><span><ion-icon class="hover:text-cyan-500 text-xl" name="logo-facebook"></ion-icon></span></a>

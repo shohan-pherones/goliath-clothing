@@ -161,11 +161,9 @@ function displayItems() {
               <h3 class="text-lg mb-auto">${items[i].title}</h3>
               <div class="item-body-price-btn flex mb-3">
                 <p class="text-4xl">$<span>${items[i].price}</span></p>
-              <a
-                href="#"
-                class="text-lg text-cyan-500 hover:text-red-500 ease-in-out duration-300"
-                >Buy &rarr;</a
-              >
+              <button
+                class="text-lg text-cyan-500 hover:text-red-500 ease-in-out duration-300 buy-btn"
+                >Buy &rarr;</button>
               </div>
             </div>
     `;
@@ -175,3 +173,66 @@ function displayItems() {
 }
 
 displayItems();
+
+// Display modal
+function displayModal() {
+  const buyBtn = document.querySelectorAll(".buy-btn");
+
+  for (let i = 0; i < buyBtn.length; i++) {
+    buyBtn[i].addEventListener("click", function () {
+      for (let j = 0; j < items.length; j++) {
+        if (i === j) {
+          const overlay = document.querySelector(".overlayWindow");
+          const modal = document.createElement("div");
+          modal.classList.add(
+            "modalWindow",
+            "container",
+            "drop-shadow-2xl",
+            "rounded-xl",
+            "p-5",
+            "flex",
+            "flex-col",
+            "gap-3",
+            "max-w-xs"
+          );
+
+          // Calculations
+          const productTitle = items[j].title;
+          const price = items[j].price;
+          const shipping = Number(((price * 5) / 100).toFixed(2));
+          const subTotal = Number((price + shipping).toFixed(2));
+
+          // Show modal and overlay
+          modal.style.opacity = 1;
+          modal.style.visibility = "visible";
+          overlay.style.opacity = 1;
+          overlay.style.visibility = "visible";
+
+          modal.innerHTML = `
+          <h2 class="text-lg mb-3">${productTitle}</h2>
+          <h2 class="flex justify-between"><span>Price</span> <span class="font-semibold">$${price}</span></h2>
+          <h2 class="flex justify-between"><span>Shipping Cost</span> <span class="font-semibold">$${shipping}</span></h2>
+          <hr>
+          <h2 class="flex justify-between text-red-500"><span>Subtotal</span> <span class="font-semibold">$${subTotal}</span></h2>
+          <a href="#" class="text-xl text-cyan-500 hover:text-red-500 ease-in-out duration-300 mt-3">Checkout &rarr;</a>
+          `;
+
+          // Display details
+          const modalHolder = document.querySelector(".modal-holder");
+          modalHolder.append(modal);
+
+          // Hide modal and overlay
+
+          overlay.addEventListener("click", function () {
+            modal.style.opacity = 0;
+            modal.style.visibility = "hidden";
+            overlay.style.opacity = 0;
+            overlay.style.visibility = "hidden";
+          });
+        }
+      }
+    });
+  }
+}
+
+displayModal();
