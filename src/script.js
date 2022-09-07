@@ -167,11 +167,9 @@ function displayItems() {
               </div>
             </div>
     `;
-
     itemsContainer.append(itemEl);
   }
 }
-
 displayItems();
 
 // Display modal
@@ -222,7 +220,6 @@ function displayModal() {
           modalHolder.append(modal);
 
           // Hide modal and overlay
-
           overlay.addEventListener("click", function () {
             modal.style.opacity = 0;
             modal.style.visibility = "hidden";
@@ -234,5 +231,4 @@ function displayModal() {
     });
   }
 }
-
 displayModal();
