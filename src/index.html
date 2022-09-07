@@ -11,6 +11,10 @@
       body {
         font-family: "Poppins", sans-serif !important;
       }
+
+      .navbar {
+        z-index: 99;
+      }
     </style>
     <!-- CSS only -->
     <link
@@ -29,7 +33,7 @@
       >
         <div class="container">
           <a
-            class="navbar-brand font-semibold text-cyan-500 hover:text-gray-600 ease-in-out duration-300"
+            class="navbar-brand text-cyan-500 hover:text-gray-600 ease-in-out duration-300"
             href="#"
             >Goliath</a
           >
@@ -94,9 +98,56 @@
           </div>
         </div>
       </nav>
-      <!-- Slider -->
     </header>
-    <main></main>
+    <main>
+      <!-- Categories -->
+      <div class="container mt-32" id="categories">
+        <h2 class="text-3xl text-center mb-10">Categories</h2>
+        <div
+          class="categories row row-cols-1 row-cols-md-2 row-cols-lg-3 gap-10 justify-center"
+        >
+          <div
+            class="category col max-w-xs bg-white overflow-hidden rounded-lg drop-shadow-md p-0"
+          >
+            <img src="../assets/img/men.jpg" class="w-full" />
+            <div class="p-3">
+              <h3 class="text-2xl mb-3">Men</h3>
+              <a
+                href="#"
+                class="text-lg text-cyan-500 hover:text-red-500 ease-in-out duration-300"
+                >Explore &rarr;</a
+              >
+            </div>
+          </div>
+          <div
+            class="category col max-w-xs bg-white overflow-hidden rounded-lg drop-shadow-md p-0"
+          >
+            <img src="../assets/img/women.jpg" class="w-full" />
+            <div class="p-3">
+              <h3 class="text-2xl mb-3">Women</h3>
+              <a
+                href="#"
+                class="text-lg text-cyan-500 hover:text-red-500 ease-in-out duration-300"
+                >Explore &rarr;</a
+              >
+            </div>
+          </div>
+          <div
+            class="category col max-w-xs bg-white overflow-hidden rounded-lg drop-shadow-md p-0"
+          >
+            <img src="../assets/img/kids.jpg" class="w-full" />
+            <div class="p-3">
+              <h3 class="text-2xl mb-3">Kids</h3>
+              <a
+                href="#"
+                class="text-lg text-cyan-500 hover:text-red-500 ease-in-out duration-300"
+                >Explore &rarr;</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
     <footer></footer>
     <!-- JavaScript Bundle with Popper -->
     <script
